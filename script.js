@@ -14,10 +14,12 @@ document.getElementById('calculate-ebv').addEventListener('click', function() {
 
     if (gender === 'female') {
         ebvAmount = weight * 65; // Females get 65mL per kg
-        ebvCalculationText = `Calculation: ${weight.toFixed(2)} kg * 65 mL/kg (for females)`;
+        // ebvCalculationText = `Calculation: ${weight.toFixed(2)} kg * 65 mL/kg (for females)`;
+        ebvCalculationText = `Calculation: 1 kg * 65 mL/kg (for females)`;
     } else if (gender === 'male') {
         ebvAmount = weight * 75; // Males get 75mL per kg
-        ebvCalculationText = `Calculation: ${weight.toFixed(2)} kg * 75 mL/kg (for males)`;
+        // ebvCalculationText = `Calculation: ${weight.toFixed(2)} kg * 75 mL/kg (for males)`;
+        ebvCalculationText = `Calculation: 1 kg * 75 mL/kg (for males)`;
     }
 
     document.getElementById('ebv').textContent = ebvAmount.toFixed(2) + ' mL';
@@ -25,8 +27,8 @@ document.getElementById('calculate-ebv').addEventListener('click', function() {
 
     
     //Lidocaine 
-    const lidocaineMin = weight * 1; // 1mg per kg
-    const lidocaineMax = weight * 1.5; // 1.5mg per kg
+    const lidocaineMin = weight * 1; 
+    const lidocaineMax = weight * 1.5; 
     document.getElementById('lidocaine').textContent = lidocaineMin.toFixed(2) + ' mg - ' + lidocaineMax.toFixed(2) + ' mg';
 
     //Propofol
