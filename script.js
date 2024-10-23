@@ -3,6 +3,19 @@ document.getElementById('calculate-ebv').addEventListener('click', function() {
     let weight = parseFloat(document.getElementById('weight').value);
     const weightUnit = document.getElementById('weight-unit').value;
     
+
+    if (gender === ""){
+        alert("Please input gender.")
+        return;
+    }
+    
+    if (isNaN(weight) || weight <= 0) {
+        alert("Please enter a valid weight.");
+        return;
+    }
+
+
+
     // Convert weight to kg if in lb
     if (weightUnit === 'lb') {
         weight = weight * 0.453592;
@@ -12,14 +25,16 @@ document.getElementById('calculate-ebv').addEventListener('click', function() {
     let ebvAmount = 0;
     let ebvCalculationText = '';
 
+    
+
     if (gender === 'female') {
-        ebvAmount = weight * 65; // Females get 65mL per kg
-        // ebvCalculationText = `Calculation: ${weight.toFixed(2)} kg * 65 mL/kg (for females)`;
-        ebvCalculationText = `Calculation: 1 kg * 65 mL/kg (for females)`;
+        ebvAmount = weight * 65;
+       
+        ebvCalculationText = `Calculation: 65 mL/kg (for females)`;
     } else if (gender === 'male') {
-        ebvAmount = weight * 75; // Males get 75mL per kg
-        // ebvCalculationText = `Calculation: ${weight.toFixed(2)} kg * 75 mL/kg (for males)`;
-        ebvCalculationText = `Calculation: 1 kg * 75 mL/kg (for males)`;
+        ebvAmount = weight * 75; 
+        
+        ebvCalculationText = `Calculation: 75 mL/kg (for males)`;
     }
 
     document.getElementById('ebv').textContent = ebvAmount.toFixed(2) + ' mL';
